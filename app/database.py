@@ -2,10 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 # For local SQL Server Express with Windows Authentication
-DATABASE_URL = (
-    "mssql+pyodbc://@PRAJOTH\\SQLEXPRESS/PersonalFinanceTracker"
-    "?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes"
-)
+DATABASE_URL = 'postgresql://neondb_owner:npg_KiqoRZ1bW6dr@ep-proud-pine-ad7krraw-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
 
 # Create engine
 engine = create_engine(DATABASE_URL, pool_pre_ping=True)
