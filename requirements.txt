@@ -4,4 +4,4 @@ pydantic
 sqlalchemy
 databases
 asyncpg
-psypg2
+psycopg2
