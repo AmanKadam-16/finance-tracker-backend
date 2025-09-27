@@ -2,6 +2,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api import routes
+import uvicorn
 
 app = FastAPI()
 
@@ -21,3 +22,7 @@ app.add_middleware(
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the Finance Tracker API!"}
+
+
+if __name__ == "__main__":
+    uvicorn.run(app)
