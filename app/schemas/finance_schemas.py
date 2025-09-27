@@ -1,7 +1,8 @@
 # app/schemas/schemas.py
-from pydantic import BaseModel, EmailStr
 from typing import Optional
 from datetime import date
+from pydantic import BaseModel, EmailStr
+
 
 # Schema for creating a new user (Signup)
 class UserCreate(BaseModel):

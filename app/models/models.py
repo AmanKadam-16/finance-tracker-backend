@@ -13,7 +13,7 @@ class User(Base):
     name: Mapped[str] = mapped_column(String(100), nullable=False)
     email: Mapped[str] = mapped_column(String(100), nullable=False, unique=True, index=True)
     password_hash: Mapped[str] = mapped_column(String(255), nullable=False)  # Add this line
-    created_at: Mapped[DateTime] = mapped_column(DateTime, server_default=func.getdate())
+    created_at: Mapped[DateTime] = mapped_column(DateTime, server_default=func.now())
 
     # ORM relations (defined in child tables)
     transactions: Mapped[list["Transaction"]] = relationship(
@@ -48,7 +48,7 @@ class Transaction(Base):
     category: Mapped[str] = mapped_column(String(50), nullable=False)
     notes: Mapped[str | None] = mapped_column(String(255), nullable=True)
     transaction_date: Mapped[Date] = mapped_column(Date, nullable=False)
-    created_at: Mapped[DateTime] = mapped_column(DateTime, server_default=func.getdate())
+    created_at: Mapped[DateTime] = mapped_column(DateTime, server_default=func.now())
 
     # Relationship with the User table
     user: Mapped[User] = relationship(back_populates="transactions")
@@ -71,7 +71,7 @@ class Goal(Base):
     )
     target_amount: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
     target_date: Mapped[Date] = mapped_column(Date, nullable=False)
-    created_at: Mapped[DateTime] = mapped_column(DateTime, server_default=func.getdate())
+    created_at: Mapped[DateTime] = mapped_column(DateTime, server_default=func.now())
 
     # Relationship with the User table
     user: Mapped[User] = relationship(back_populates="goals")
