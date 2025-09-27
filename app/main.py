@@ -2,7 +2,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api import routes
-from app.database import Base, engine
 
 app = FastAPI()
 
@@ -17,7 +16,7 @@ app.add_middleware(
 )
 
 # Include the signup route
-app.include_router(routes.router)
+# app.include_router(routes.router)
 
 @app.get("/")
 def read_root():
